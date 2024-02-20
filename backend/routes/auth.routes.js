@@ -10,7 +10,7 @@ router.get("/login", (req, res) => {
     res.send("Login Route");
 });
 
-router.get('/register', (req, res) => {
+router.get('/logout', (req, res) => {
     res.send("You have registered successfully");
 })
 
