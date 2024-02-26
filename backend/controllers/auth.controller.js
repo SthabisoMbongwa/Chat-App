@@ -1,6 +1,6 @@
 
-export const signup = (req, res) => {
-    console.log("signupUser");
+export const signup = async (req, res) => {
+    
 };
 
 export const login = (req, res) => {
