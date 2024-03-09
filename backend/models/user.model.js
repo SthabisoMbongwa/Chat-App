@@ -7,17 +7,17 @@ const userSchema = new mongoose.Schema({
     },
     username:{
         type:String,
-        ruquired:true,
+        required:true,
         unique:true,
     },
     password: {
         type: String,
         required: true,
-        minlengthe:6,
+        minlength:6,
     },
     gender:{
         type: String,
-        ruquired: true,
+        required: true,
         enum: ["male", "female"],
     },
     profilePic: {
