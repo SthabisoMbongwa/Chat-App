@@ -27,7 +27,12 @@ const userSchema = new mongoose.Schema({
     status: {
         type: String,
         required: false,
-        default: "Hi I am using ..."
+        default: ""
+    },
+    profileMassage: {
+        type: String,
+        required: false,
+        default: "Hi, let's talk..."
     },
 });
 
