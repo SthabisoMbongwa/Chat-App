@@ -2,7 +2,7 @@ import User from "../models/user.model";
 
 export const signup = async (req, res) => {
     try{
-        const {fullName, username, password, confirmPassword, gender} = req.body;
+        const {fullName, username, password, confirmPassword, gender, status, profileMessage} = req.body;
 
         if(password !== confirmPassword){
             return res.status(400).json({error: "Password don't match"})
