@@ -10,6 +10,9 @@ export const signup = async (req, res) => {
 
         const user = await User.findOne({username});
 
+        if(user){
+            return res.status(400).json({error: "Username already exists"})
+        }
        
     } catch (error){
 

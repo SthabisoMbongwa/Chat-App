@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
         required: false,
         default: ""
     },
-    profileMassage: {
+    profileMessage: {
         type: String,
         required: false,
         default: "Hi, let's talk..."
