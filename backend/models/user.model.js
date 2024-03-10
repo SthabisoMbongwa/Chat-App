@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "",
     },
+    status: {
+        type: String,
+        required: false,
+        default: "Hi I am using ..."
+    },
 });
 
 const User = mongoose.model("User", userSchema);

@@ -1,3 +1,4 @@
+import User from "../models/user.model";
 
 export const signup = async (req, res) => {
     try{
@@ -6,6 +7,10 @@ export const signup = async (req, res) => {
         if(password !== confirmPassword){
             return res.status(400).json({error: "Password don't match"})
         }
+
+        const user = await User.findOne({username});
+
+       
     } catch (error){
 
     }
