@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 export const signup = async (req, res) => {
     try{
-        console.log(req.body);
+        // console.log(req.body);
         const {fullName, username, password, confirmPassword, gender} = req.body;
 
         if(password !== confirmPassword){
@@ -31,6 +31,8 @@ export const signup = async (req, res) => {
             profilePic: gender === "male" ? boyProfilePic : girlProfilePic
         })
 
+    if(newUser) {
+        
         await newUser.save();
 
         res.status(201).json({
@@ -39,6 +41,9 @@ export const signup = async (req, res) => {
             username: newUser.username,
             profilePic: newUser.profilePic
         })
+    }else {
+        res.status(400).json({ error: "Invalid user data"});
+    }
        
     } catch (error){
         console.log("Error in signup controller", error.message);
