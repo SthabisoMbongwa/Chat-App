@@ -1,7 +1,8 @@
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 
 export const signup = async (req, res) => {
     try{
+        console.log(req.body);
         const {fullName, username, password, confirmPassword, gender, status, profileMessage} = req.body;
 
         if(password !== confirmPassword){
@@ -23,6 +24,8 @@ export const signup = async (req, res) => {
             username,
             password,
             gender,
+            status,
+            profileMessage,
             profilePic: gender === "male" ? boyProfilePic : girlProfilePic
         })
 
