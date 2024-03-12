@@ -3,7 +3,7 @@ import User from "../models/user.model.js";
 export const signup = async (req, res) => {
     try{
         console.log(req.body);
-        const {fullName, username, password, confirmPassword, gender, status, profileMessage} = req.body;
+        const {fullName, username, password, confirmPassword, gender} = req.body;
 
         if(password !== confirmPassword){
             return res.status(400).json({error: "Password don't match"})
@@ -23,9 +23,8 @@ export const signup = async (req, res) => {
             fullName,
             username,
             password,
+            confirmPassword,
             gender,
-            status,
-            profileMessage,
             profilePic: gender === "male" ? boyProfilePic : girlProfilePic
         })
 
@@ -39,7 +38,8 @@ export const signup = async (req, res) => {
         })
        
     } catch (error){
-
+        console.log("Error in signup controller", error.message);
+        res.status(500).json({error: "Internal Server Error"})
     }
 };
 
