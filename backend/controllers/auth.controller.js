@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import bcrypt from "bcryptjs";
 
 export const signup = async (req, res) => {
     try{
@@ -15,6 +16,8 @@ export const signup = async (req, res) => {
             return res.status(400).json({error: "Username already exists"})
         }
 
+        //HASH PASSWORD HERE
+        const salt = await bcrypt.genSalt(10);
                 
         const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`
         const girlProfilePic =`https://avatar.iran.liara.run/public/girl?username=${username}`
