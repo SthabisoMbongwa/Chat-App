@@ -2,6 +2,6 @@ import  express  from "express";
 
 const router = express.Router();
 
-router.post("/send/:id", sendMessage)
+router.post("/send/:id", protectRoute, sendMessage)
 
 export default router;
